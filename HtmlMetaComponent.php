@@ -67,7 +67,7 @@ class HtmlMetaComponent extends Component
     public static function elements()
     {
         $elements = null;
-        self::$_attributes = array_merge(self::$_attributes, self::$_settings);
+        self::$_attributes = array_merge(self::$_settings, self::$_attributes);
         if (!empty(self::$_attributes)) {
             $Html = new HtmlHelper(new View(null));
             foreach (self::$_attributes as $attributes) {
