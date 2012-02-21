@@ -1,0 +1,57 @@
+CakePHP HTML Meta Component
+
+A CakePHP Component for adding and outputting HTML Meta Elements.
+
+INSTALLATION
+------------
+
+Copy HtmlMetaComponent.php to your app/Controller/Component directory
+
+CONFIGURATION
+---------------
+
+In your controller:
+
+    public $components = array(
+        'HtmlMeta'
+    );
+
+The following example shows how to pass default HTML Meta Elements to the component:
+
+    public $components = array(
+        'HtmlMeta' => array(
+            array(
+                'property' => 'og:locale',
+                'content' => 'en_AU'
+            ),
+            array(
+                'property' => 'og:site_name',
+                'content' => 'Pollenizer'
+            ),
+        )
+    );
+
+USAGE
+---------------
+
+The following example shows how to add HTML Meta Elements in your controller:
+
+    $this->HtmlMeta->addElement(array('name' => 'description', 'content' => __('Growing &amp; Investing in Startup Internet Businesses')));
+    $this->HtmlMeta->addElement(array('name' => 'author', 'content' => 'Pollenizer'));
+    $this->HtmlMeta->addElement(array('property' => 'og:title', 'content' => __('Growing &amp; Investing in Startup Internet Businesses - Pollenizer - Sydney, Australia')));
+    $this->HtmlMeta->addElement(array('property' => 'og:type', 'content' => 'website'));
+    $this->HtmlMeta->addElement(array('property' => 'og:url', 'content' => 'http://pollenizer.com/'));
+    $this->HtmlMeta->addElement(array('property' => 'og:description', 'content' => __('Growing &amp; Investing in Startup Internet Businesses')));
+
+The following example shows how to output HTML Meta Elements in your layout:
+
+    echo HtmlMetaComponent::elements();
+
+The output of the above will be:
+
+    <meta name="description" content="Growing &amp; Investing in Startup Internet Businesses" />
+    <meta name="author" content="Pollenizer" />
+    <meta property="og:title" content="Growing &amp; Investing in Startup Internet Businesses - Pollenizer - Sydney, Australia" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://pollenizer.com/" />
+    <meta property="og:description" content="Growing &amp; Investing in Startup Internet Businesses" />
